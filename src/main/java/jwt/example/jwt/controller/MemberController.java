@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 
 @RequiredArgsConstructor
@@ -41,5 +42,12 @@ public class MemberController {
         }
 
         return jwtTokenProvider.createToken(member.getUsername(), member.getRoles());
+    }
+
+    @PostMapping("/user/test")
+    public Map userResponseTest() {
+        Map<String, String> result = new HashMap<>();
+        result.put("result","success");
+        return result;
     }
 }
